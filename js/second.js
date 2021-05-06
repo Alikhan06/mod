@@ -1,7 +1,6 @@
 const cardBody = document.querySelector('.card-body')
 window.addEventListener('load', () =>{
     const newPeople = localStorage.getItem('people')
-    const namesPeople = [];
 
     for(let i = 0; i < newPeople; i++){
         const input = document.createElement('input')
@@ -9,14 +8,7 @@ window.addEventListener('load', () =>{
         input.classList.add('mb-3')
         input.classList.add('pt-3')
         input.classList.add('pb-3')
-        
         cardBody.appendChild(input);
-        
-        namesPeople[i] = [
-            {
-                names: input
-            }
-        ]
         localStorage.setItem('namesOne', JSON.stringify(input))
     }
 })
@@ -25,18 +17,19 @@ const btn = document.querySelector('.btn-success')
 btn.addEventListener('click' , e =>{
     e.preventDefault();
     
+    const onthe = JSON.parse(localStorage.getItem('namesOne'))
+    // const newNames = [];
+    console.log(onthe);
 
-
-
-    const newInput = localStorage.getItem('namesOne')
-    console.log(newInput);
-    if(newInput === ''){
-        alert('Поля не должны быть пустыми')
-    }else if(newInput !== ''){
+    if(onthe === ''){
+        alert('Поля не должны быть пустыми!')
+    }else if(onthe !== ''){
         window.open('win.html' , '_self')
-        localStorage.setItem('namesOne', JSON.stringify(newInput))
     }
 })
+
+
+
 
 
 

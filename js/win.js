@@ -1,11 +1,38 @@
 const btn = document.querySelector('.btn-danger')
-
+const names = document.querySelectorAll('p')
+console.log(names);
 
 btn.addEventListener('click', e =>{
     e.preventDefault();
 
-    const random = Math.floor(Math.random() * col)
+    const namesAll = [];
+    for(let i = 0; i < names;i++){
+        namesAll += names[i]
+    }
+    
+    
+    const random = Math.random(names)
     console.log(random);
 
 
 })
+
+
+const cardBody = document.querySelector('.card-body')
+window.addEventListener('load', () =>{
+    const newPeople = localStorage.getItem('people')
+    const names = JSON.parse(localStorage.getItem('namesOne'))
+    for(let i = 0; i < newPeople; i++){
+        // const input = document.createElement('h5')
+        // input.innerHTML = names;
+        // input.classList.add('form-control')
+        // input.classList.add('mb-3')
+        // input.classList.add('pt-3')
+        // input.classList.add('pb-3')
+        // input.classList.add('w-50')
+        // cardBody.appendChild(input);
+        // localStorage.setItem('namesOne', JSON.stringify(input))
+    }
+})
+
+
